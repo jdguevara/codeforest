@@ -1,0 +1,332 @@
+body {
+  margin: 0;
+  font-family: 'Chakra Petch', sans-serif;
+  background-color: #222;
+}
+
+#banner {
+  height: 100px;
+  background-color: rgba(64,152,96,0.9);
+  background-image: url("../images/Forest.png"), url("../images/Forest.png"), url("../images/Forest.png"), url("../images/Forest.png"), url("../images/Forest.png");
+  background-position: right -90px, 60px -100px, 150px -130px, 270px -200px, 470px -200px;
+  background-repeat: repeat-x;
+}
+
+#content {
+  position: relative;
+  top: 30px;
+  height: 100vh;
+  width: 86%;
+  left: 200px;
+}
+
+.logoBox {
+  border: 1px solid rgba(0,255,0,0.7);
+  width: 100px;
+  text-align: center;
+  color: #FFF;
+  font-size: 20px;
+  position: absolute;
+  top: 30px;
+  left: 10px;
+  background-color: rgba(34,139,34,0.8);
+  padding: 5px;
+  padding-right: 10px;
+  -webkit-text-stroke: 0.1px green;
+}
+
+#separator {
+  position: absolute;
+  top: 18px;
+  left: 130px;
+  font-size: 45px;
+  color: #EEE;
+  text-shadow: 3px 3px 3px black;
+}
+
+.page-title {
+  position: absolute;
+  top: 17px;
+  left: 135px;
+  font-size: 40px;
+  color: #EEE;
+  padding: 5px;
+  text-shadow: 3px 3px 3px black;
+}
+
+#main-buttons {
+  position: relative;
+  top: 30px;
+  float: right;
+  padding-right: 15px;
+}
+
+.notice-message {
+  font: 45px Courier, monospace, medium;
+  font-weight: normal;
+  text-shadow: 2px 2px 1px forestgreen;
+  color: limegreen;
+}
+
+.menu-button {
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+#nav-buttons {
+  position: absolute;
+  height: 30px;
+  width: 100%;
+  background-color: forestgreen;
+}
+
+#project-creation {
+  position: relative;
+  float: left;
+  left: 200px;
+  display: inline-block;
+  top: 2px;
+  background-color: #EEE;
+  outline: solid;
+  outline-width: 2px;
+  outline-color: limegreen;
+}
+
+#secondary-nav-selection {
+  position: relative;
+  float: right;
+  display: inline-block;
+  top: 2px;
+  background-color: #EEE;
+  outline: solid;
+  outline-width: 2px;
+  outline-color: limegreen;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: limegreen;
+}
+
+#secondaryLink {
+  padding: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font: 15px Tahoma;
+  color: forestgreen;
+  display: inline;
+}
+
+#secondaryLink:hover {
+  color: limegreen;
+}
+
+#menuBar {
+  position: absolute;
+  height: 105.5vh;
+  width: 200px;
+  background-color: forestgreen;
+}
+
+.projectButtons {
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 15px;
+  padding-bottom: 20px;
+  text-align: center;
+  font: 18px Tahoma;
+  border-bottom: 1px solid limegreen;
+}
+
+.projectButtons:hover {
+  background-color: limegreen;
+}
+
+a.menuTab {
+  position: relative;
+  color: white;
+  text-align: center;
+}
+
+a.menuTab:hover {
+  text-decoration: none;
+}
+
+
+#footer {
+  position: relative;
+}
+
+footer {
+  color: #DDD;
+  padding: 10px;
+  text-align: center;
+  left: 25%;
+  font: 14px Tahoma;
+  text-shadow: 2px 1px 2px lime;
+  height: 30px;
+  background-color: #222;
+}
+
+#footer a {
+  text-decoration: none;
+  color: limegreen;
+  text-shadow: none;
+}
+
+#footer a:hover {
+  text-decoration: underline;
+  color: lime;
+}
+
+#footer #first{
+  border-left: none;
+}
+
+#footer li {
+  display: inline;
+  padding: 0 10px;
+  border-left: solid 1px #DDD;
+}
+
+#projects {
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+
+.project-table {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 100%;
+  border-collapse: collapse;
+  outline: solid;
+  outline-color: limegreen;
+}
+
+#title-bar {
+  width: 100%;
+  background-color: #eee;
+  height: 30px;
+  font-weight: bolder;
+  color: forestgreen;
+  text-shadow: 2px 2px 1px limegreen;
+  outline: solid;
+  outline-offset: -2px;
+}
+
+#project-div {
+  position: relative;
+  text-align: left;
+  margin: auto;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-bottom: 5px;
+  height: 30px;
+  background-color: #4f4;
+  color: #050;
+  font-weight: bolder;
+}
+
+#project-name {
+  padding-left: 10px;
+  width: 400px;
+}
+
+#date-modified {
+  text-align: center;
+  width: 200px;
+}
+
+#collaborators {
+  padding-left: 10px;
+  width: 300px;
+}
+
+#program-toolbar {
+  position: relative;
+  width: 100%;
+  background-color: #777777;
+  margin: 0;
+  padding: 0;
+}
+
+#code-language-menu {
+  position: relative;
+  top: 7px;
+  left: 10px;
+  width: 100px;
+  height: 22px;
+  text-align: center;
+  font-weight: 500;
+}
+
+#save-project {
+  position: relative;
+  float: left;
+  left: -490px;
+  top: -2px;
+  width: 100px;
+  height: 20px;
+  text-align: center;
+  font-weight: 500;
+  background-color: #EEE;
+  font-weight: bolder;
+  outline: solid;
+  outline-offset: -3px;
+  outline-color: limegreen;
+}
+
+#save-project:hover {
+  background-color: #FFF;
+  outline-color: lime;
+}
+
+#program {
+  position: absolute;
+  height: 96vh;
+  width: 99.9%;
+  background-color: #444;
+  outline: groove;
+  outline-offset: -1px;
+  outline-color: lime;
+  padding: 1px;
+}
+
+#code-form {
+  position: relative;
+  top: -7px;
+}
+
+#code-text {
+  position: relative;
+  float: left;
+  margin: 0;
+  width: 610px;
+}
+
+#code-text textarea {
+  position: relative;
+  float: left;
+  width: 627px;
+  top: -2px;
+  height: 92vh;
+  padding: 10px;
+}
+
+#syntaxed-code {
+  position: relative;
+  margin: 0;
+  padding: 10px;
+  height: 89.5vh
+}
+
+.code-toolbar {
+  width: 610px;
+  float: right;
+}
