@@ -8,5 +8,7 @@ However, this being said the website can create users and checks for duplicate u
 
 All passwords are currently hashed using `'sha256'+salt`
 
+#### Link to website: [https://codeforest.herokuapp.com]
+
 #### Author: Jaime Guevara
 
