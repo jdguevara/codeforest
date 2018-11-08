@@ -181,7 +181,7 @@ a:hover {
   top: 10px;
   float: left;
   margin: 10px;
-  width: 700px;
+  width: 48vw;
   box-shadow: 0 0 10px 2px #DDD;
 }
 
@@ -190,7 +190,7 @@ a:hover {
   top: 10px;
   float: right;
   margin: 10px;
-  width: 700px;
+  width: 48vw;
   box-shadow: 0 0 10px 2px #DDD;
 }
 

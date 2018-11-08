@@ -95,7 +95,7 @@ class Dao {
     public function getMyProjects ($user) {
         $this->log->LogDebug("Getting {$user}'s projects");
         $conn = $this->getConnection();
-        $sql = "select * from project where project_ID = (select ID from users where username = :user) order by ID;";
+        $sql = "select * from project where user_ID = (select ID from users where username = :user) order by ID;";
         $q = $conn->prepare($sql);
         $q->bindParam(":user", $user);
         $q->execute();
