@@ -113,4 +113,20 @@ class Dao {
         // For the moment get what we have in the user's table, need to get some dummy projects in the projects table
         return $q->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function saveProject ($project, $owner, $program_language) {
+        $this->log->LogInfo("Saving project:[{$project}]");
+        $conn = $this->getConnection();
+        $saveQuery =
+            "INSERT INTO project 
+            (user_ID, project_name, project_owner, date_modified, collaborators, program_language)
+            VALUES
+            ((select ID from users where username = :user), :project_name, :project_owner, now(), :project_owner, :program_language)";
+        $q = $conn->prepare($saveQuery);
+        $q->bindParam(":user", $owner);
+        $q->bindParam(":project_name", $project);
+        $q->bindParam(":project_owner", $owner);
+        $q->bindParam(":program_language", $program_language);
+        $q->execute();
+    }
 }

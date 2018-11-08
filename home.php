@@ -83,8 +83,8 @@ session_start();
             <h2 class="notice-message">Code Sharing Made Easy!</h2>
             <!-- <h2 class="smaller-notice-message">(Under Construction)</h2> -->
             <p class="content-paragraphs">
-                CodeForest is a rudimentary syntax highlighter and code share that gives you the freedom of language syntax and collaborator input through the use of
-                Prism.js!
+                CodeForest is a rudimentary code share that gives you the freedom of collaborator input<br>
+                and language-specific syntax highlighting thanks to the use of Prism.js ▲
             </p>
             <img id="project-screenshot-L" src="images/Project-screenshot2.png">
             <img id="project-screenshot-R" src="images/Project-screenshot1.png">

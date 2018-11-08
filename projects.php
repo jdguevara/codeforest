@@ -208,25 +208,31 @@ $projects = $dao->getProjects($user);
                     ?>
                 </table>
             </div>
+
             <div id="program" style="display:none">
-                <table id="program-toolbar">
-                    <tbody><tr>
-                        <td>
-                            <form>
-                                <select title="code-language" id="code-language-menu">
-                                    <option value="python">Python</option>
-                                    <option value="html">HTML</option>
-                                    <option value="java">Java</option>
-                                </select>
-                            </form>
-                        </td>
-                        <td>
-                            <a class="menuTab" href="#" id="save-project">
-                                <p id="secondaryLink"> Save </p>
-                            </a>
-                        </td>
-                    </tr>
-                    </tbody></table>
+                <form id="toolbar-form" action="project_handler.php" method="POST">
+                    <table id="program-toolbar">
+                        <tbody><tr>
+                            <td>
+                                <form>
+                                    <select title="code-language" id="code-language-menu" name="program-language">
+                                        <option value="Python">Python</option>
+                                        <option value="HTML">HTML</option>
+                                        <option value="Java">Java</option>
+                                        <option value="C">C</option>
+                                    </select>
+                                </form>
+                            </td>
+                            <td>
+                                <input id="name-field" name="project-name" type="text" value="New Project Name"/>
+                            </td>
+                            <td>
+                                <input id="save-project" name="submit" value="SAVE" type="submit"/>
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </form>
 
                 <form id="code-form">
                     <p id="code-text">
