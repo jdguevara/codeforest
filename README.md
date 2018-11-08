@@ -8,7 +8,13 @@ However, this being said the website can create users and checks for duplicate u
 
 All passwords are currently hashed using `'sha256'+salt`
 
+#### Dummy user:
+
+There's a dummy user in the system, to show off that there is in fact a difference when pressing each of the 'All Projects', 'My Projects', and 'Shared Projects' tabs that is currently not evident to new users as setting collaborators is not yet present.
+
+##### Dummy-user: 'BobRoss'
+##### Pass: 'HelloWorld'
+
 #### Link to website: <https://codeforest.herokuapp.com>
 
 #### Author: Jaime Guevara
-
