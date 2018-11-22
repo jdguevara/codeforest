@@ -1,12 +1,12 @@
 <?php
-
-include_once 'Dao.php';
 /**
  * Created by IntelliJ IDEA.
  * User: jguevara
  * Date: 11/3/18
  * Time: 8:50 PM
  */
+
+include_once 'Dao.php';
 
 session_start();
 $dao = new Dao();

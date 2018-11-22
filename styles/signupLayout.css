@@ -258,7 +258,7 @@ footer {
   border-left: solid 1px #DDD;
 }
 
-.missing-credential {
+#missing-credential {
   position: absolute;
   font: 17px "Chakra Petch", sans-serif;
   top: 400px;
