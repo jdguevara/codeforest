@@ -235,7 +235,7 @@ footer {
   border-left: solid 1px #DDD;
 }
 
-#missing-credential {
+#failed-login {
   position: absolute;
   font: 17px "Chakra Petch", sans-serif;
   top: 400px;

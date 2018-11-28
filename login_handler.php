@@ -15,8 +15,14 @@ $password = $_POST['password'];
         }
         if (empty($login)) {
             $_SESSION['message'] = "Username/Email Required!";
+            $_SESSION['password'] = $password;
+            header('Location: login.php');
+            exit;
         } else if (empty($password)) {
             $_SESSION['message'] = "Password Required!";
+            $_SESSION['username'] = $login;
+            header('Location: login.php');
+            exit;
         }
         header('Location: login.php');
         exit;
@@ -30,6 +36,8 @@ $password = $_POST['password'];
       exit;
   } else {
       $_SESSION['logged_in'] = false;
+      $_SESSION['username'] = $login;
+      $_SESSION['password'] = $password;
       $_SESSION['message'] = "Username/Email or Password invalid";
       header('Location: login.php');
       exit;

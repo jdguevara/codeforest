@@ -1,5 +1,11 @@
 <?php
 session_start();
+$message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+unset($_SESSION['message']);
+unset($_SESSION['username']);
+unset($_SESSION['password']);
 ?>
 
 <html>
@@ -23,12 +29,18 @@ session_start();
                         </td>
                         <td class="menu-button">
                             <a href="/signup.php">
-                            <img alt="Sign Up" src="./images/signUpIcon.png" width="35" height="35" border="0">
+                            <img alt="Sign Up" src="./images/signUpIcon.png" width="35" height="35" border="0"/>
                             </a>
                         </td>
+                        <?php if(isset($_SESSION['user'])) {
+                            echo "<td class='menu-button'>".
+                                "<a href='/projects.php'>" .
+                                "<img alt='Projects' src='./images/projectIcon.png' width='35' height='35' border='0'/>" .
+                                "</a></td>";
+                        } ?>
                         <td class="menu-button">
                             <a href="/support.php">
-                            <img alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0">
+                            <img alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0"/>
                             </a>
                         </td>
                     </tr>
@@ -37,21 +49,21 @@ session_start();
         </div>
 
         <div id="login" class="hidden">
-            <form id="form" method="post" action="login_handler.php">
+            <form id="form" method="post" action="home_login_handler.php">
                 <table id="login-table">
                     <tr>
                         <td>
                             <div id="usernameField">
                                 <p id="usernameTitle">Username / Email</p>
                                 <br/>
-                                <input title="username/email" id="username" name="username" type="text"/>
+                                <input title="username/email" id="username" name="username" type="text" value="<?php echo $username ?>"/>
                             </div>
                         </td>
                         <td>
                             <div id="passwordField">
                                 <p id="passwordTitle">Password</p>
                                 <br/>
-                                <input title="password" id="password" name="password" type="password"/>
+                                <input title="password" id="password" name="password" type="password" value="<?php echo $password ?>"/>
                             </div>
                         </td>
                         <td>

@@ -1,7 +1,11 @@
 <?php
 session_start();
 $message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
-//unset($_SESSION['message']);
+$username = $_SESSION['username'];
+$password = $_SESSION['password'];
+unset($_SESSION['message']);
+unset($_SESSION['username']);
+unset($_SESSION['password']);
 ?>
 
 <html>
@@ -32,7 +36,7 @@ $message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
                         </td>
                         <td class="menu-button">
                             <a href="support.php">
-                            <img title="Support" src="./images/questionIcon.png" width="35" height="35" border="0">
+                            <img title="Support / Help" src="./images/questionIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
                     </tr>
@@ -63,12 +67,12 @@ $message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
                     <div id="usernameField">
                         <p id="usernameTitle">Username / Email</p>
                         <br/>
-                        <input title="username/email" id="username" name="username" type="text"/>
+                        <input title="username/email" id="username" name="username" type="text" value="<?php echo $username ?>"/>
                     </div>
                     <div id="passwordField">
                         <p id="passwordTitle">Password</p>
                         <br/>
-                        <input title="password" id="password" name="password" type="password"/>
+                        <input title="password" id="password" name="password" type="password" value="<?php echo $password ?>"/>
                     </div>
                     <input id="submit" name="submit" value="LOG IN" type="submit"/>
                 </form>

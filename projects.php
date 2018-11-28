@@ -7,6 +7,8 @@ require_once 'Dao.php';
 $dao = new Dao();
 $user = $_SESSION['user'];
 $projects = $dao->getProjects($user);
+$project_name = $_SESSION['project-name'];
+//unset($_SESSION['message']);
 ?>
 
 <html>
@@ -30,17 +32,17 @@ $projects = $dao->getProjects($user);
                     <tr>
                         <td class="menu-button">
                             <a href="/home.php">
-                            <img alt="Home" src="./images/homeIcon.png" width="35" height="35" border="0">
+                            <img title="Go Home" alt="Home" src="./images/homeIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
                         <td class="menu-button">
                             <a href="/logout.php">
-                            <img alt="Logout" src="./images/logoutIcon.png" width="35" height="35" border="0">
+                            <img title="Log Out" alt="Logout" src="./images/logoutIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
                         <td class="menu-button">
                             <a href="/support.php">
-                            <img alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0">
+                            <img title="Help/Support" alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
                     </tr>
@@ -109,13 +111,13 @@ $projects = $dao->getProjects($user);
                      </tr>
                      <?php
                         foreach ($projects as $project) {
-                            echo "<tr id='project-div'><td id='project-name'>" . $project['project_name'] . "</td>" .
+                            echo "<tr id='project-div'><td id='project-name'><a href='#' class='project-link'>" . $project['project_name'] . "</a></td>" .
                                     "<td id='project-owner'>" . $project['project_owner'] . "</td>" .
                                     "<td id='date-modified'>" . $project['date_modified'] . "</td>" .
                                     "<td id='collaborators'>" . $project['collaborators'] . "</td>" .
                                     "<td id='program-language'>" . $project['program_language'] . "</td></tr>";
                         }
-                    ?>
+                     ?>
                  </table>
 
                  <table id="all-projects-table" style="display: none" class="project-table">
@@ -139,7 +141,7 @@ $projects = $dao->getProjects($user);
                     <?php
                     $projects = $dao->getProjects($user);
                     foreach ($projects as $project) {
-                        echo "<tr id='project-div'><td id='project-name'>" . $project['project_name'] . "</td>" .
+                        echo "<tr id='project-div'><td id='project-name'><a href='#' class='project-link'>" . $project['project_name'] . "</a></td>" .
                             "<td id='project-owner'>" . $project['project_owner'] . "</td>" .
                             "<td id='date-modified'>" . $project['date_modified'] . "</td>" .
                             "<td id='collaborators'>" . $project['collaborators'] . "</td>" .
@@ -169,7 +171,7 @@ $projects = $dao->getProjects($user);
                     <?php
                     $projects = $dao->getMyProjects($user);
                     foreach ($projects as $project) {
-                        echo "<tr id='project-div'><td id='project-name'>" . $project['project_name'] . "</td>" .
+                        echo "<tr id='project-div'><td id='project-name'><a href='#' class='project-link'>" . $project['project_name'] . "</a></td>" .
                             "<td id='project-owner'>" . $project['project_owner'] . "</td>" .
                             "<td id='date-modified'>" . $project['date_modified'] . "</td>" .
                             "<td id='collaborators'>" . $project['collaborators'] . "</td>" .
@@ -199,7 +201,7 @@ $projects = $dao->getProjects($user);
                     <?php
                     $projects = $dao->getSharedProjects($user);
                     foreach ($projects as $project) {
-                        echo "<tr id='project-div'><td id='project-name'>" . $project['project_name'] . "</td>" .
+                        echo "<tr id='project-div'><td id='project-name'><a href='#' class='project-link'>" . $project['project_name'] . "</a></td>" .
                             "<td id='project-owner'>" . $project['project_owner'] . "</td>" .
                             "<td id='date-modified'>" . $project['date_modified'] . "</td>" .
                             "<td id='collaborators'>" . $project['collaborators'] . "</td>" .
@@ -209,37 +211,53 @@ $projects = $dao->getProjects($user);
                 </table>
             </div>
 
+            <!-- This is for new projects -->
             <div id="program" style="display:none">
                 <form id="toolbar-form" action="project_handler.php" method="POST">
                     <table id="program-toolbar">
                         <tbody><tr>
                             <td>
-                                <form>
-                                    <select title="code-language" id="code-language-menu" name="program-language">
-                                        <option value="Python">Python</option>
-                                        <option value="HTML">HTML</option>
-                                        <option value="Java">Java</option>
-                                        <option value="C">C</option>
-                                    </select>
-                                </form>
+                                <select title="code-language" id="code-language-menu" name="language-select">
+                                    <option value="ada">Ada</option>
+                                    <option value="arduino">Arduino</option>
+                                    <option value="c">C</option>
+                                    <option value="cpp">C++</option>
+                                    <option value="css">CSS</option>
+                                    <option value="html">HTML</option>
+                                    <option value="http">HTTP</option>
+                                    <option value="java">Java</option>
+                                    <option value="javascript">JavaScript</option>
+                                    <option value="json">JSON</option>
+                                    <option value="markdown">Markdown</option>
+                                    <option value="makefile">Makefile</option>
+                                    <option value="matlab">Matlab</option>
+                                    <option value="pascal">Pascal</option>
+                                    <option value="php">PHP</option>
+                                    <option value="prolog">Prolog</option>
+                                    <option value="python">Python</option>
+                                    <option value="scheme">Scheme</option>
+                                    <option value="smalltalk">Smalltalk</option>
+                                    <option value="sql">SQL</option>
+                                    <option value="verilog">Verilog</option>
+                                    <option value="vim">VIM</option>
+                                </select>
                             </td>
                             <td>
+                                <label for="Project Name">
                                 <input id="name-field" name="project-name" type="text" value="New Project Name"/>
+                                </label>
                             </td>
                             <td>
-                                <input id="save-project" name="submit" value="SAVE" type="submit"/>
+                                <input id="save-project" name="save" value="SAVE" type="submit"/>
                             </td>
                         </tr>
                         </tbody>
                     </table>
-                </form>
-
-                <form id="code-form">
                     <p id="code-text">
-                        <textarea></textarea>
+                        <textarea name="code_input" id="code_textarea" placeholder="Type code here!"></textarea>
                     </p>
-                    <div class="code-toolbar"><pre id="syntaxed-code" class="  language-c">                        <code id="code" class="  language-c"></code>
-                    </pre><div class="toolbar"><div class="toolbar-item"><span>C</span></div></div></div>
+                    <script src="js/prism.js"></script>
+                    <pre id="syntaxed-code"><code class="language-ada">I'll Mirror It!</code></pre>
                 </form>
             </div>
         </div>
@@ -253,7 +271,5 @@ $projects = $dao->getProjects($user);
                 <li>Email: <a id="adminEmail" href="mailto:jaimeguevara@u.boisestate.edu">jaimeguevara@u.boisestate.edu</a></li>
             </footer>
         </div>
-
-        <script src="js/prism.js"></script>
     </body>
 </html>

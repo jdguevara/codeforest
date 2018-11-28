@@ -16,21 +16,44 @@ $password = $_POST['password'];
 
 if (empty($username) || empty($password) || empty($email)) {
     // If all are empty return appropriate message for user
-    if (empty($username) || empty($password) || empty($email)) {
+    if (empty($username) && empty($password) && empty($email)) {
         $_SESSION['message'] = "Credentials required.";
         header('Location: signup.php');
         exit;
     }
     // Check which fields are empty and output the correct message
     if (empty($username)) {
+        if (empty($email)) {
+            $_SESSION['message'] = "Username and Email Required!";
+            $_SESSION['password'] = $password;
+            header('Location: signup.php');
+            exit;
+        } elseif (empty($password)) {
+            $_SESSION['email'] = $email;
+            $_SESSION['message'] = "Username and Password Required!";
+            header('Location: signup.php');
+            exit;
+        }
+        $_SESSION['email'] = $email;
+        $_SESSION['password'] = $password;
         $_SESSION['message'] = "Username Required!";
         header('Location: signup.php');
         exit;
     } else if (empty($email)) {
+        if (empty($password)) {
+            $_SESSION['message'] = "Email and Password Required!";
+            $_SESSION['username'] = $username;
+            header('Location: signup.php');
+            exit;
+        }
+        $_SESSION['username'] = $username;
+        $_SESSION['password'] = $password;
         $_SESSION['message'] = "Email Required!";
         header('Location: signup.php');
         exit;
     } else if (empty($password)) {
+        $_SESSION['username'] = $username;
+        $_SESSION['email'] = $email;
         $_SESSION['message'] = "Password Required!";
         header('Location: signup.php');
         exit;

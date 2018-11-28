@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <html>
     <head>
         <link href="https://fonts.googleapis.com/css?family=Chakra+Petch" rel="stylesheet">
@@ -29,6 +32,12 @@
                             <img alt="Sign Up" src="./images/signUpIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
+                        <?php if(isset($_SESSION['user'])) {
+                            echo "<td class='menu-button'>".
+                                "<a href='/projects.php'>" .
+                                "<img alt='Projects' src='./images/projectIcon.png' width='35' height='35' border='0'/>" .
+                                "</a></td>";
+                        } ?>
                         <td class="menu-button">
                             <a href="/support.php">
                             <img alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0">

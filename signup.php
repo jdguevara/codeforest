@@ -3,9 +3,15 @@ session_start();
 $message = isset($_SESSION['message']) ? $_SESSION['message'] : '';
 $duplicate = isset($_SESSION['duplicate']) ? $_SESSION['duplicate'] : '';
 $success = isset($_SESSION['success']) ? $_SESSION['success'] : '';
+$username = $_SESSION['username'];
+$email = $_SESSION['email'];
+$password = $_SESSION['password'];
 unset($_SESSION['message']);
 unset($_SESSION['duplicate']);
 unset($_SESSION['success']);
+unset($_SESSION['username']);
+unset($_SESSION['email']);
+unset($_SESSION['password']);
 ?>
 
 <html>
@@ -34,6 +40,12 @@ unset($_SESSION['success']);
                             <img alt="Login" src="./images/loginIcon.png" width="35" height="35" border="0">
                             </a>
                         </td>
+                        <?php if(isset($_SESSION['user'])) {
+                            echo "<td class='menu-button'>".
+                                "<a href='/projects.php'>" .
+                                "<img alt='Projects' src='./images/projectIcon.png' width='35' height='35' border='0'/>" .
+                                "</a></td>";
+                        } ?>
                         <td class="menu-button">
                             <a href="/support.php">
                             <img alt="Support" src="./images/questionIcon.png" width="35" height="35" border="0">
@@ -67,17 +79,17 @@ unset($_SESSION['success']);
                         <div id="usernameField">
                             <p id="usernameTitle">Username</p>
                             <br/>
-                            <input id="username" name="username" type="text"/>
+                            <input id="username" name="username" type="text" value="<?php echo $username ?>"/>
                         </div>
                         <div id="emailField">
                             <p id="emailTitle">Email</p>
                             <br>
-                            <input id="email" name="email" type="text">
+                            <input id="email" name="email" type="text" value="<?php echo $email ?>"/>
                         </div>
                         <div id="passwordField">
                             <p id="passwordTitle">Password</p>
                             <br/>
-                            <input id="password" name="password" type="text"/>
+                            <input id="password" name="password" type="password" value="<?php echo $password ?>"/>
                         </div>
                         <!-- Will take out the Occupation Field for the moment
                         <div id="occupationField">
